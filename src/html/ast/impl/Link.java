@@ -1,6 +1,6 @@
 package html.ast.impl;
 
-import css.visitor.Visitor;
+import html.visitor.Visitor;
 import html.ast.AstHtml;
 
 public class Link implements AstHtml {
@@ -11,7 +11,7 @@ public class Link implements AstHtml {
 
 
     @Override
-    public Object accept(Visitor visitor, Object param) {
-        return null;
+    public Object accept(Visitor visitor, Object param){
+        return visitor.visit(this, param);
     }
 }

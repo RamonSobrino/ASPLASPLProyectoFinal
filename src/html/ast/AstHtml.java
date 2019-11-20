@@ -1,6 +1,6 @@
 package html.ast;
 
-import css.visitor.Visitor;
+import html.visitor.Visitor;
 
 public interface AstHtml {
 
