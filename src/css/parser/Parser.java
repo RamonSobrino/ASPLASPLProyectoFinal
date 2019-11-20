@@ -32,7 +32,7 @@ public class Parser {
     private int clasificarRegla(Program ast, int i, Regla r) {
         Token t = lex.tokens.get(i);
         if(t.getToken()== TokensId.Ident){
-            r.ident = t.getLexeme();
+            r.setIdent(t.getLexeme());
             i++;
             t = lex.tokens.get(i);
             if(t.token==TokensId.ParentesisA) {
@@ -46,7 +46,7 @@ public class Parser {
                     t = lex.tokens.get(i);
 
                 }
-                ast.reglas.add(r);
+                ast.getReglas().add(r);
 
             }else{
                 this.errorSintactico(t.lexeme, t.line);
@@ -61,19 +61,19 @@ public class Parser {
     private int clasificarDefinicion(int i, Token t, Regla r, Definicion d) {
         switch (t.token) {
             case Color:
-                d.label = t.lexeme;
-                d.line = t.line;
+                d.setLabel(t.lexeme);
+                d.setLine(t.line);
                 i++;
                 t = lex.tokens.get(i);
                 if (t.token == TokensId.Point) {
                     i++;
                     t = lex.tokens.get(i);
                     if (comprobarColor(t)) {
-                        d.value = t.lexeme;
+                        d.setValue(t.lexeme);
                         i++;
                         t = lex.tokens.get(i);
                         if (t.token == TokensId.ComaPoint) {
-                            r.definiciones.add(d);
+                            r.getDefiniciones().add(d);
                         } else {
                             this.errorSintactico(t.lexeme, t.line);
                         }
@@ -86,19 +86,19 @@ public class Parser {
                 }
                 break;
             case FontSize:
-                d.label = t.lexeme;
-                d.line = t.line;
+                d.setLabel(t.lexeme);
+                d.setLine(t.line);
                 i++;
                 t = lex.tokens.get(i);
                 if (t.token == TokensId.Point) {
                     i++;
                     t = lex.tokens.get(i);
                     if (t.token == TokensId.Size) {
-                        d.value = t.lexeme;
+                        d.setValue(t.lexeme);
                         i++;
                         t = lex.tokens.get(i);
                         if (t.token == TokensId.ComaPoint) {
-                            r.definiciones.add(d);
+                            r.getDefiniciones().add(d);
                         } else {
                             this.errorSintactico(t.lexeme, t.line);
                         }
@@ -111,19 +111,19 @@ public class Parser {
                 }
                 break;
             case FontStyle:
-                d.label = t.lexeme;
-                d.line = t.line;
+                d.setLabel(t.lexeme);
+                d.setLine(t.line);
                 i++;
                 t = lex.tokens.get(i);
                 if (t.token == TokensId.Point) {
                     i++;
                     t = lex.tokens.get(i);
                     if (comprobarStyle(t)) {
-                        d.value = t.lexeme;
+                        d.setValue(t.lexeme);
                         i++;
                         t = lex.tokens.get(i);
                         if (t.token == TokensId.ComaPoint) {
-                            r.definiciones.add(d);
+                            r.getDefiniciones().add(d);
                         } else {
                             this.errorSintactico(t.lexeme, t.line);
                         }
@@ -136,19 +136,19 @@ public class Parser {
                 }
                 break;
             case TextAlign:
-                d.label = t.lexeme;
-                d.line = t.line;
+                d.setLabel(t.lexeme);
+                d.setLine(t.line);
                 i++;
                 t = lex.tokens.get(i);
                 if (t.token == TokensId.Point) {
                     i++;
                     t = lex.tokens.get(i);
                     if (comprobarAlign(t)) {
-                        d.value = t.lexeme;
+                        d.setValue(t.lexeme);
                         i++;
                         t = lex.tokens.get(i);
                         if (t.token == TokensId.ComaPoint) {
-                            r.definiciones.add(d);
+                            r.getDefiniciones().add(d);
                         } else {
                             this.errorSintactico(t.lexeme, t.line);
                         }

@@ -8,13 +8,29 @@ import java.util.List;
 
 public class Program implements AstCss {
 
-    public int line;
+    private int line;
 
-    public List<Regla> reglas =  new ArrayList<Regla>();
+    private List<Regla> reglas =  new ArrayList<Regla>();
 
 
     @Override
     public Object accept(Visitor visitor, Object param) {
         return visitor.visit(this,param);
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line = line;
+    }
+
+    public List<Regla> getReglas() {
+        return reglas;
+    }
+
+    public void setReglas(List<Regla> reglas) {
+        this.reglas = reglas;
     }
 }

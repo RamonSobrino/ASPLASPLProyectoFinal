@@ -8,11 +8,18 @@ import java.util.List;
 
 public class Body implements AstHtml {
 
-    public List<Parrafo> parrafos =new ArrayList<Parrafo>();
+    private  List<Parrafo> parrafos =new ArrayList<Parrafo>();
 
     @Override
     public Object accept(Visitor visitor, Object param){
         return visitor.visit(this, param);
     }
 
+    public List<Parrafo> getParrafos() {
+        return parrafos;
+    }
+
+    public void setParrafos(List<Parrafo> parrafos) {
+        this.parrafos = parrafos;
+    }
 }

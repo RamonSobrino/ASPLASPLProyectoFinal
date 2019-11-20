@@ -5,6 +5,8 @@ import html.parser.Lexicon;
 import html.parser.Parser;
 import html.parser.Token;
 import html.parser.TokensId;
+import html.visitor.ImprimeHtmlVisitor;
+import html.visitor.Visitor;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -20,9 +22,9 @@ public class Main {
 
 //		//Visitor print css
 //
-//        Visitor visitor = new ImprimeCSSVisitor();
-//       System.out.println(  ast.accept(visitor, null));
-		System.out.println(  "asdddddd");
+        Visitor visitor = new ImprimeHtmlVisitor();
+       System.out.println(  ast.accept(visitor, null));
+		System.out.println("Fin de todo");
 
 	}
 

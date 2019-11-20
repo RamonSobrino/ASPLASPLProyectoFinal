@@ -5,11 +5,27 @@ import html.ast.AstHtml;
 
 public class Head implements AstHtml {
 
-    public Title title;
-    public Link link;
+    private Title title;
+    private Link link;
 
     @Override
     public Object accept(Visitor visitor, Object param){
         return visitor.visit(this, param);
+    }
+
+    public Title getTitle() {
+        return title;
+    }
+
+    public void setTitle(Title title) {
+        this.title = title;
+    }
+
+    public Link getLink() {
+        return link;
+    }
+
+    public void setLink(Link link) {
+        this.link = link;
     }
 }

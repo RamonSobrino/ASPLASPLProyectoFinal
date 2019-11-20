@@ -12,8 +12,8 @@ public class ImprimeCSSVisitor  implements Visitor{
     public Object visit(Program p, Object param) {
         String resultado = "";
 
-        for (Regla r : p.reglas) {
-            resultado += r.ident;
+        for (Regla r : p.getReglas()) {
+            resultado += r.getIdent();
             resultado += "{\n";
             resultado += (String) r.accept(this, sp);
             resultado += "}\n\n";
@@ -25,7 +25,7 @@ public class ImprimeCSSVisitor  implements Visitor{
     @Override
     public Object visit(Regla p, Object param) {
         String resultado = "";
-        for (Definicion d : p.definiciones) {
+        for (Definicion d : p.getDefiniciones()) {
 
             resultado += sp+ (String) d.accept(this,null);
 

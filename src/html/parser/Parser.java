@@ -63,7 +63,7 @@ public class Parser {
            }
             i++;
         }
-        ast.head = head;
+        ast.setHead(head);
         return i;
     }
 
@@ -85,7 +85,7 @@ public class Parser {
             }
             i++;
         }
-        ast.body=body;
+        ast.setBody(body);
         return i;
     }
 
@@ -113,7 +113,7 @@ public class Parser {
             }
             i++;
         }
-        body.parrafos.add(parrafo);
+        body.getParrafos().add(parrafo);
         return i;
     }
 
@@ -123,13 +123,13 @@ public class Parser {
         while (lex.tokens.get(i).token==TokensId.TEXT){
             Token token = lex.tokens.get(i);
             if(token.token==TokensId.TEXT){
-                agrupTextos.textos.add(token.lexeme);
+                agrupTextos.getTextos().add(token.lexeme);
             }else{
                 errorSintactico(token.lexeme, token.line);
             }
             i++;
         }
-        parrafo.bloques.add(agrupTextos);
+        parrafo.getBloques().add(agrupTextos);
         i--;
         return i;
     }
@@ -140,13 +140,13 @@ public class Parser {
         while (lex.tokens.get(i).token!=TokensId.IB){
             Token token = lex.tokens.get(i);
             if(token.token==TokensId.TEXT){
-                italic.textos.add(token.lexeme);
+                italic.getTextos().add(token.lexeme);
             }else{
                 errorSintactico(token.lexeme, token.line);
             }
             i++;
         }
-        parrafo.bloques.add(italic);
+        parrafo.getBloques().add(italic);
         return i;
     }
 
@@ -156,13 +156,13 @@ public class Parser {
         while (lex.tokens.get(i).token!=TokensId.BB){
             Token token = lex.tokens.get(i);
             if(token.token==TokensId.TEXT){
-                bold.textos.add(token.lexeme);
+                bold.getTextos().add(token.lexeme);
             }else{
                 errorSintactico(token.lexeme, token.line);
             }
             i++;
         }
-        parrafo.bloques.add(bold);
+        parrafo.getBloques().add(bold);
         return i;
     }
 
@@ -172,13 +172,13 @@ public class Parser {
         while (lex.tokens.get(i).token!=TokensId.UB){
             Token token = lex.tokens.get(i);
             if(token.token==TokensId.TEXT){
-                underlined.textos.add(token.lexeme);
+                underlined.getTextos().add(token.lexeme);
             }else{
                 errorSintactico(token.lexeme, token.line);
             }
             i++;
         }
-        parrafo.bloques.add(underlined);
+        parrafo.getBloques().add(underlined);
         return i;
     }
 
@@ -189,14 +189,14 @@ public class Parser {
         while (lex.tokens.get(i).token!=TokensId.H1B){
             Token token = lex.tokens.get(i);
             if(token.token==TokensId.TEXT){
-                h1.textos.add(token.lexeme);
+                h1.getTextos().add(token.lexeme);
             }else{
                 errorSintactico(token.lexeme, token.line);
             }
 
             i++;
         }
-        body.parrafos.add(h1);
+        body.getParrafos().add(h1);
         return i;
     }
 
@@ -206,13 +206,13 @@ public class Parser {
         while (lex.tokens.get(i).token!=TokensId.H2B){
             Token token = lex.tokens.get(i);
             if(token.token==TokensId.TEXT){
-                h2.textos.add(token.lexeme);
+                h2.getTextos().add(token.lexeme);
             }else{
                 errorSintactico(token.lexeme, token.line);
             }
             i++;
         }
-        body.parrafos.add(h2);
+        body.getParrafos().add(h2);
         return i;
     }
 
@@ -223,13 +223,13 @@ public class Parser {
         while (lex.tokens.get(i).token!=TokensId.TITLEB){
             Token token = lex.tokens.get(i);
             if(token.token== TokensId.TEXT){
-                title.textos.add(token.lexeme);
+                title.getTextos().add(token.lexeme);
             }else{
                 errorSintactico(token.lexeme, token.line);
             }
             i++;
         }
-        head.title = title;
+        head.setTitle(title);
         return i;
     }
 
@@ -246,7 +246,7 @@ public class Parser {
                         i++;
                         token = lex.tokens.get(i);
                         if(token.token==TokensId.URL){
-                            link.href = token.lexeme.substring(1, token.lexeme.length()-2);
+                            link.setHref(token.lexeme.substring(1, token.lexeme.length()-1));
                         }else{
                             errorSintactico(token.lexeme, token.line);
                         }
@@ -261,7 +261,7 @@ public class Parser {
                         i++;
                         token = lex.tokens.get(i);
                         if(token.token==TokensId.URL){
-                            link.rel = token.lexeme.substring(1, token.lexeme.length()-2);
+                            link.setRel(token.lexeme.substring(1, token.lexeme.length()-1));
                         }else{
                             errorSintactico(token.lexeme, token.line);
                         }
@@ -276,7 +276,7 @@ public class Parser {
                         i++;
                         token = lex.tokens.get(i);
                         if(token.token==TokensId.URL){
-                            link.type = token.lexeme.substring(1, token.lexeme.length()-2);
+                            link.setType(token.lexeme.substring(1, token.lexeme.length()-1));
                         }else{
                             errorSintactico(token.lexeme, token.line);
                         }
@@ -289,7 +289,7 @@ public class Parser {
             }
             i++;
         }
-        head.link= link;
+        head.setLink(link);
         return i;
     }
 
