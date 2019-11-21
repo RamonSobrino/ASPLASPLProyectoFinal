@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Parser {
 
-    Lexicon lex;
-    boolean errorSint = false;
+    private Lexicon lex;
+    private boolean errorSint = false;
 
     public Parser (Lexicon lex) {
         this.lex = lex;

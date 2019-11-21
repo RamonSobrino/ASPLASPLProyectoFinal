@@ -4,15 +4,8 @@ public class FormattedText {
 
     private String texto;
     private String color;
-    private String fontSize;
+    private Float fontSize;
     private String fontStyle;
-
-    public FormattedText(String texto, String color, String fontSize, String fontStyle) {
-        this.texto = texto;
-        this.color = color;
-        this.fontSize = fontSize;
-        this.fontStyle = fontStyle;
-    }
 
     public String getTexto() {
         return texto;
@@ -30,11 +23,11 @@ public class FormattedText {
         this.color = color;
     }
 
-    public String getFontSize() {
+    public Float getFontSize() {
         return fontSize;
     }
 
-    public void setFontSize(String fontSize) {
+    public void setFontSize(Float fontSize) {
         this.fontSize = fontSize;
     }
 
@@ -44,5 +37,16 @@ public class FormattedText {
 
     public void setFontStyle(String fontStyle) {
         this.fontStyle = fontStyle;
+    }
+
+
+    @Override
+    public String toString() {
+        return "\n\t\tFormattedText{" +
+                "texto='" + texto + '\'' +
+                ", color='" + color + '\'' +
+                ", fontSize='" + fontSize + '\'' +
+                ", fontStyle='" + fontStyle + '\'' +
+                '}';
     }
 }

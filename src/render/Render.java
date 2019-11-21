@@ -8,6 +8,7 @@ import css.visitor.ImprimeCSSVisitor;
 import html.ast.AstHtml;
 import html.visitor.BuscaCssVisitor;
 import html.visitor.ImprimeHtmlConCssVisitor;
+import html.visitor.RenderFormattedVisitor;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class Render {
 
     }
 
-    public String render(String fichero){
+    public String renderPruebas(String fichero){
 
 
         try {
@@ -40,6 +41,30 @@ public class Render {
 
 
         return "";
+    }
+
+
+    public FormattedPage render(String fichero) {
+
+
+        try {
+            AstHtml html = obtenerArbolHtml(fichero);
+
+            BuscaCssVisitor buscaCssVisitor = new BuscaCssVisitor();
+            String ficheroCss = (String) html.accept(buscaCssVisitor, null);
+
+            AstCss cssPropio = obtenerArbolCss(ficheroCss);
+            AstCss cssDefault = obtenerArbolCss("DEFAULT.CSS");
+
+            RenderFormattedVisitor renderFormattedVisitor = new RenderFormattedVisitor(cssPropio, cssDefault);
+
+            return ((FormattedPage) html.accept(renderFormattedVisitor, null));
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private AstHtml obtenerArbolHtml(String  fichero) throws IOException {
