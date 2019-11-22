@@ -3,19 +3,31 @@ h1 {
     font-size: 32px;
     text-align: center;
     font-style: normal;
+    font-family: arial;
 }
 
 h2 {
     color: black;
+    font-size: 24px;
+    text-align: center;
+    font-style: normal;
+    font-family: arial;
+}
+
+h3 {
+    color: black;
     font-size: 18px;
     text-align: center;
     font-style: normal;
+    font-family: arial;
 }
+
 
 p {
     color: black;
     font-size: 12px;
     text-align: left;
     font-style: normal;
+    font-family: arial;
 }
 

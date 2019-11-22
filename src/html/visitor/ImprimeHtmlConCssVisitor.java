@@ -20,6 +20,16 @@ public class ImprimeHtmlConCssVisitor extends  ImprimeHtmlVisitor {
     }
 
 
+    @Override
+    public Object visit(H3 p, Object param) {
+        String resultado = "";
+        resultado += "      <h3"+ buscarParametros("h3",param)+">";
+        resultado +=String.join(" ", p.getTextos());
+        resultado += " </h3> \n";
+        return resultado;
+    }
+
+
 
     @Override
     public Object visit(H2 h2, Object param){
@@ -44,6 +54,9 @@ public class ImprimeHtmlConCssVisitor extends  ImprimeHtmlVisitor {
         resultado += " ";
         resultado += "font-style: ";
         resultado += this.buscaParamEnCssVisitor.search(ident,"font-style",(AstCss) param);
+        resultado += " ";
+        resultado += "font-family: ";
+        resultado += this.buscaParamEnCssVisitor.search(ident,"font-family",(AstCss) param);
         resultado += " ";
         resultado += " \"";
 

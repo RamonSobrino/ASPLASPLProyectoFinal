@@ -17,4 +17,5 @@ public interface Visitor {
     Object visit(Underlined underlined, Object param);
     Object visit(P p, Object param);
 
+    Object visit(H3 h3, Object param);
 }

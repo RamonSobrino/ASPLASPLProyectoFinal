@@ -58,6 +58,7 @@ public class RenderFormattedVisitor implements Visitor {
         param.setFontSize(Float.parseFloat(buscaParametro(ident, "font-size")
                 .replace("px", "")));
         param.setFontStyle(buscaParametro(ident, "font-style"));
+        param.setFontFamily(buscaParametro(ident, "font-family"));
     }
 
     private String buscaParametro(String ident, String label){
@@ -106,6 +107,15 @@ public class RenderFormattedVisitor implements Visitor {
         linea.getTextos().add(crearTexto("h2",String.join(" ", h2.getTextos())));
         return linea;
     }
+
+    @Override
+    public Object visit(H3 h3, Object param){
+        FormattedLine linea = new FormattedLine();
+        asignarParametros("h3",linea);
+        linea.getTextos().add(crearTexto("h3",String.join(" ", h3.getTextos())));
+        return linea;
+    }
+
 
     @Override
     public Object visit(AgrupTextos agrupTextos, Object param) {

@@ -135,6 +135,31 @@ public class Parser {
                     this.errorSintactico(t.lexeme, t.line);
                 }
                 break;
+            case FontFamily:
+                d.setLabel(t.lexeme);
+                d.setLine(t.line);
+                i++;
+                t = lex.tokens.get(i);
+                if (t.token == TokensId.Point) {
+                    i++;
+                    t = lex.tokens.get(i);
+                    if (comprobarFamily(t)) {
+                        d.setValue(t.lexeme);
+                        i++;
+                        t = lex.tokens.get(i);
+                        if (t.token == TokensId.ComaPoint) {
+                            r.getDefiniciones().add(d);
+                        } else {
+                            this.errorSintactico(t.lexeme, t.line);
+                        }
+                    } else {
+                        this.errorSintactico(t.lexeme, t.line);
+                    }
+
+                } else {
+                    this.errorSintactico(t.lexeme, t.line);
+                }
+                break;
             case TextAlign:
                 d.setLabel(t.lexeme);
                 d.setLine(t.line);
@@ -190,6 +215,20 @@ public class Parser {
                 return false;
         }
     }
+
+
+    private boolean comprobarFamily(Token t){
+        switch(t.token){
+            case Times:
+            case Arial:
+            case Impact:
+            case Georgia:
+                return true;
+            default:
+                return false;
+        }
+    }
+
 
 
     private boolean comprobarAlign(Token t){

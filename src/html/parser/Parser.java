@@ -82,6 +82,9 @@ public class Parser {
                 case H2A:
                     i= insertarH2(i, body);
                     break;
+                case H3A:
+                    i= insertarH3(i, body);
+                    break;
             }
             i++;
         }
@@ -213,6 +216,22 @@ public class Parser {
             i++;
         }
         body.getParrafos().add(h2);
+        return i;
+    }
+
+    private int insertarH3(int i, Body body){
+        i++;
+        H3 h3 = new H3();
+        while (lex.tokens.get(i).token!=TokensId.H3B){
+            Token token = lex.tokens.get(i);
+            if(token.token==TokensId.TEXT){
+                h3.getTextos().add(token.lexeme);
+            }else{
+                errorSintactico(token.lexeme, token.line);
+            }
+            i++;
+        }
+        body.getParrafos().add(h3);
         return i;
     }
 

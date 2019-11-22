@@ -218,6 +218,9 @@ public class Lexicon {
             case "h2>":
                 tokens.add(new Token(TokensId.H2B, "</" + lex, line));
                 break;
+            case "h3>":
+                tokens.add(new Token(TokensId.H3B, "</" + lex, line));
+                break;
             case "head>":
                 tokens.add(new Token(TokensId.HEADB, "</" + lex, line));
                 break;
@@ -238,6 +241,9 @@ public class Lexicon {
                 break;
             case "h2>":
                 tokens.add(new Token(TokensId.H2A,"<"+lex, line));
+                break;
+            case "h3>":
+                tokens.add(new Token(TokensId.H3A,"<"+lex, line));
                 break;
             case "head>":
                 tokens.add(new Token(TokensId.HEADA,"<"+lex, line));

@@ -31,6 +31,16 @@ public class ImprimeHtmlVisitor implements Visitor {
     }
 
     @Override
+    public Object visit(H3 p, Object param) {
+        String resultado = "";
+        resultado += "      <h3>";
+        resultado +=String.join(" ", p.getTextos());
+        resultado += " </h3> \n";
+        return resultado;
+    }
+
+
+    @Override
     public Object visit(Head p, Object param) {
         String resultado = "";
 

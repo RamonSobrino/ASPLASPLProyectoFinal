@@ -6,6 +6,7 @@ public class FormattedText {
     private String color;
     private Float fontSize;
     private String fontStyle;
+    private String fontFamily;
 
     public String getTexto() {
         return texto;
@@ -39,6 +40,13 @@ public class FormattedText {
         this.fontStyle = fontStyle;
     }
 
+    public String getFontFamily() {
+        return fontFamily;
+    }
+
+    public void setFontFamily(String fontFamily) {
+        this.fontFamily = fontFamily;
+    }
 
     @Override
     public String toString() {
@@ -47,6 +55,7 @@ public class FormattedText {
                 ", color='" + color + '\'' +
                 ", fontSize='" + fontSize + '\'' +
                 ", fontStyle='" + fontStyle + '\'' +
+                ", fontFamily='" + fontFamily + '\'' +
                 '}';
     }
 }

@@ -3,6 +3,7 @@ h1 {
     font-size: 36px;
     text-align: center;
     font-style: normal;
+    font-family: times;
 }
 
 h2 {
@@ -11,9 +12,18 @@ h2 {
     font-style: italic;
 }
 
+h3 {
+    color: red;
+    font-size: 22px;
+    text-align: left;
+    font-style: underlined;
+    font-family: georgia;
+}
+
 p {
     color: green;
     text-align: right;
     font-style: normal;
+    font-family: impact;
 }
 

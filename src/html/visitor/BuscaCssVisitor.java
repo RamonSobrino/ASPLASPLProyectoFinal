@@ -62,4 +62,9 @@ public class BuscaCssVisitor implements Visitor {
     public Object visit(P p, Object param) {
         return null;
     }
+
+    @Override
+    public Object visit(H3 h3, Object param) {
+        return null;
+    }
 }

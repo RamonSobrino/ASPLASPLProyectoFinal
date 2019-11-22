@@ -65,6 +65,8 @@ public class Pintor {
                                             break;
                                     }
 
+                                    style.addAttribute(StyleConstants.FontFamily, text.getFontFamily());
+
                                     switch (text.getFontStyle()) {
                                         case "bold":
                                             style.addAttribute(StyleConstants.Bold,true);
@@ -78,6 +80,8 @@ public class Pintor {
                                             style.addAttribute(StyleConstants.Underline,true);
                                             break;
                                     }
+
+
 
 
                                     doc.insertString(start, text.getTexto(), style);

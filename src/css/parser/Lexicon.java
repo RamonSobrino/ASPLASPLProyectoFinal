@@ -17,7 +17,7 @@ public class Lexicon {
 	boolean charBuffUsed = false;
 	char charBuff;
 	int line = 1; // indica la l�nea del fichero fuente
-	
+
 	HashSet<Character> charText = new HashSet<Character>();
 	
 	public Lexicon (FileReader f) {
@@ -67,6 +67,9 @@ public class Lexicon {
                                 case "font-style":
                                     tokens.add(new Token(TokensId.FontStyle,palabra, line));
                                     break;
+                                case "font-family":
+                                    tokens.add(new Token(TokensId.FontFamily,palabra, line));
+                                    break;
                                 case "text-align":
                                     tokens.add(new Token(TokensId.TextAlign,palabra, line));
                                     break;
@@ -102,6 +105,18 @@ public class Lexicon {
                                     break;
                                 case "underlined":
                                     tokens.add(new Token(TokensId.Underlined,palabra, line));
+                                    break;
+                                case "times":
+                                    tokens.add(new Token(TokensId.Times,palabra, line));
+                                    break;
+                                case "arial":
+                                    tokens.add(new Token(TokensId.Arial,palabra, line));
+                                    break;
+                                case "impact":
+                                    tokens.add(new Token(TokensId.Impact,palabra, line));
+                                    break;
+                                case "georgia":
+                                    tokens.add(new Token(TokensId.Georgia,palabra, line));
                                     break;
                                 case "h1":
                                 case "h2":
